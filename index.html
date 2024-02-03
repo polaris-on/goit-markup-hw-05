@@ -316,13 +316,13 @@
             </div>
           </li>
           <li class="portfolio-card card">
-           <div class="card-image-wrapper">
+            <div class="card-image-wrapper">
               <img class="card-image" src="./images/portfolio-image-3.jpg" alt="Meditation App" width="360">
               <p class="card-description">
                 14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie Tracker App · Exotic Fruit
                 Ecommerce App · Cloud Storage App
               </p>
-           </div>
+            </div>
             <div class="card-text">
               <h3 class="card-title">Meditation App</h3>
               <p class="card-category">App</p>
@@ -342,13 +342,13 @@
             </div>
           </li>
           <li class="portfolio-card card">
-           <div class="card-image-wrapper">
+            <div class="card-image-wrapper">
               <img class="card-image" src="./images/portfolio-image-5.jpg" alt="Screen Illustrations" width="360">
               <p class="card-description">
                 14 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie Tracker App · Exotic Fruit
                 Ecommerce App · Cloud Storage App
               </p>
-           </div>
+            </div>
             <div class="card-text">
               <h3 class="card-title">Screen Illustrations</h3>
               <p class="card-category">Design</p>
@@ -421,6 +421,49 @@
       </div>
     </div>
   </footer>
+
+ <!-- Modal  -->
+
+  <div class="backdrop is-open">
+    <div class="modal">
+      <div class="modal-button-close">
+        <svg class="modal-button-icon" width="8" height="8">
+          <use href="./images/icons.svg#icon-cross"></use>
+        </svg>
+      </div>
+      <p class="contacts-form-title">
+        Leave your contacts and we will call you back
+      </p>
+      <form action="#" class="contacts-form">
+        <label for="name" class="contacts-form-label">Name
+          <input class="contacts-form-input" id="name" type="text" autofocus>
+          <svg class="contacts-form-icon" width="12" height="12">
+            <use href="./images/icons.svg#icon-user"></use>
+          </svg>
+        </label>
+        <label for="phone" class="contacts-form-label">Phone
+          <input class="contacts-form-input" id="phone" type="phone">
+          <svg class="contacts-form-icon" width="12" height="12">
+            <use href="./images/icons.svg#icon-phone"></use>
+          </svg>
+        </label>
+        <label for="email" class="contacts-form-label">Email
+          <input class="contacts-form-input" id="email" type="email" autofocus>
+          <svg class="contacts-form-icon" width="12" height="12">
+            <use href="./images/icons.svg#icon-email"></use>
+          </svg>
+        </label>
+        <label for="comment" class="contacts-form-label">Comment
+          <textarea class="contacts-form-textarea" placeholder="Text input" id="comment"></textarea>
+        </label>
+        <label for="agreement" class="contacts-form-checkbox-label">
+          <input class="contacts-form-checkbox" type="checkbox" value="agree" id="agreement">
+          I accept the terms and conditions of the <a href="#">Privacy Policy</a></label>
+        <button class="contacts-form-button" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
 </body>
 
 </html>
