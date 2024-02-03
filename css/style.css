@@ -493,7 +493,7 @@ img {
   letter-spacing: 0.02em;
 }
 .footer-info-column {
-  margin-right: 120px
+  margin-right: 120px;
 }
 .footer-social-column {
 }
@@ -548,17 +548,29 @@ img {
   align-items: center;
 
   background-color: rgba(46, 47, 66, 0.4);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .is-open {
   display: flex;
 }
 .modal {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
   width: 408px;
+  min-height: 584px;
   padding: 72px 24px 24px;
+
   border-radius: 4px;
-  background-color: #FCFCFC;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fcfcfc;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-button-close {
   position: absolute;
@@ -571,24 +583,25 @@ img {
   width: 24px;
   height: 24px;
 
-  background-color: #E7E9FC;
+  background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
   cursor: pointer;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-button-close:hover {
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  background-color: #404BBF;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  background-color: #404bbf;
 }
 
-
 .modal-button-icon {
-  fill: #2E2F42;
+  fill: #2e2f42;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-button-close:hover .modal-button-icon {
@@ -609,13 +622,21 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  color: #2E2F42;
 }
-.contacts-form-label {
+
+.contacts-form-field-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
   width: 100%;
+  margin-bottom: 8px;
+}
+
+.contacts-form-label {
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
 
   font-size: 12px;
   line-height: 1.16667;
@@ -627,8 +648,25 @@ img {
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   height: 40px;
-  padding: 11px 10px 11px 38px;
+  width: 100%;
+  padding-left: 38px;
+
+  background-color: transparent;
+  outline: transparent;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.contacts-form-input:focus,
+.contacts-form-textarea:focus {
+  outline: none;
+  border: 1px solid #4d5ae5;
+}
+
+.contacts-form-field-wrapper:focus-within .contacts-form-icon {
+  fill: #4d5ae5;
+}
+
 .contacts-form-textarea {
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
@@ -636,10 +674,18 @@ img {
 }
 .contacts-form-icon {
   position: absolute;
-  bottom: 14px;
+  top: 50%;
   left: 16px;
-  fill: #2E2F42;
+  fill: #2e2f42;
+
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
+
+.contacts-form-input:focus + .contacts-form-icon {
+  fill: #4D5AE5;
+}
+
 .contacts-form-checkbox-label {
   width: 100%;
   margin-bottom: 24px;
@@ -653,7 +699,7 @@ img {
 
 .contacts-form-checkbox-label a {
   text-decoration: underline;
-  color: #4D5AE5;
+  color: #4d5ae5;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -664,16 +710,6 @@ img {
 
 .contacts-form-checkbox {
   margin-right: 8px;
-}
-
-.contacts-form-label:focus-within .contacts-form-input,
-.contacts-form-label:focus-within .contacts-form-textarea {
-  outline: none;
-  border: 1px solid #4D5AE5;
-}
-
-.contacts-form-label:focus-within .contacts-form-icon {
-  fill: #4D5AE5;
 }
 
 .contacts-form-button {
@@ -692,11 +728,12 @@ img {
   cursor: pointer;
 
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-form-button:hover {
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   background: #404bbf;
 }
 .contacts-form-button:active {
